@@ -47,7 +47,7 @@
 		//=============    검색 / page 두가지 경우 모두  Event  처리 =============	
 		function fncGetProductList(currentPage) {
 			$("#currentPage").val(currentPage)
-			$("form").attr("method" , "POST").attr("action" , "/user/listProduct").submit();
+			$("form").attr("method" , "POST").attr("action" , "/product/listProduct").submit();
 		}
 		
 		
@@ -56,13 +56,6 @@
 			 
 			$( "button.btn.btn-default" ).on("click" , function() {
 				fncGetProductList(1);
-			});
-		
-
-			
-			$( "img t" ).on("click" , function() {
-				
-				 self.location ="/user/getProduct/"+$(this).text().trim();
 			});
 
 		});	

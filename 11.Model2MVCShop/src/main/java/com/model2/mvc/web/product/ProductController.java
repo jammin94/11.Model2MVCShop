@@ -72,7 +72,7 @@ public class ProductController {
 		if(!uploadFile.isEmpty()) {
 			String fileName=uploadFile.getOriginalFilename();
 			product.setFileName(fileName);
-			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\10.Model2MVCShop(Ajax)\\10.Model2MVCShop(Ajax)\\src\\main\\webapp\\images\\uploadFiles"+fileName));
+			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\"+fileName));
 			
 		}
 		productService.addProduct(product);
@@ -131,6 +131,14 @@ public class ProductController {
 
 		System.out.println("/product/updateProduct : POST");
 		//Business Logic
+		MultipartFile uploadFile = product.getImageFile();
+		if(!uploadFile.isEmpty()) {
+			String fileName=uploadFile.getOriginalFilename();
+			System.out.println(fileName);
+			product.setFileName(fileName);
+			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\"+fileName));
+			
+		}
 		productService.updateProduct(product);
 
 		return "redirect:/product/getProduct/"+productService.getProductNo(product.getProdName());

@@ -15,6 +15,7 @@
 	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+	<script src="../javascript/calendar.js"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 	
@@ -29,16 +30,17 @@
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
 	
-		//============= "가입"  Event 연결 =============
+		//============= "등록"  Event 연결 =============
 		 $(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$( "button.btn.btn-primary" ).on("click" , function() {
+				alert("wow");
 				fncAddProduct();
 			});
 		});	
 		
 		
-		//============= "취소"  Event 처리 및  연결 =============
+		//============= "리셋"  Event 처리 및  연결 =============
 		$(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("a[href='#' ]").on("click" , function() {
@@ -48,7 +50,7 @@
 		
 		
 		function fncAddProduct() {
-			
+			/*
 			var name = $("input:contains['상품명']").val();
 			var detail = $("input:contains['상품상세정보']").val();
 			var manuDate = $("input:contains['제조일자']").val();
@@ -75,8 +77,9 @@
 				alert("가격은 반드시 입력하셔야 합니다.");
 				return;
 			}
-			
-			$("form").attr("method" , "POST").attr("action" , "/user/addUser").submit();
+			*/
+			alert("wow!")
+			$("form").attr("method" , "POST").attr("action" , "/product/addProduct").submit();
 		}
 		
 
@@ -105,7 +108,7 @@
 		  <div class="form-group">
 		    <label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상품명</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="prodName" name="prodName" placeholder="상품명"  readonly>
+		      <input type="text" class="form-control" id="prodName" name="prodName" placeholder="상품명" >
 		    </div>
 		   
 		  </div>
@@ -128,9 +131,9 @@
 		    <label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">제조일자</label>
 		    <div class="col-sm-4">
 		      <input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="제조일자">
-		      	&nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
+		      	<!-- &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
 										onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>
-
+ -->
 		    </div>
 		  </div>
 		  

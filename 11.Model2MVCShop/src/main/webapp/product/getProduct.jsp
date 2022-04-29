@@ -45,7 +45,7 @@
 			 $( "button:contains('구매')" ).on("click" , function() {
 					self.location = "/purchase/addPurchase/${product.prodNo }"
 				});
-			 $( "button:contains('수정')" ).on("click" , function() {
+			 $( "button:contains('확인')" ).on("click" , function() {
 					self.location = "/product/listProduct"
 				});
 		});
@@ -64,57 +64,61 @@
 	<div class="container">
 	
 		<div class="page-header">
-	       <h3 class=" text-info">상품상세조회</h3>
-	       <h5 class="text-muted"></h5>
+			<div class="row">
+				<div class="col-md-offset-5">
+			       <h3 class=" text-info">상품상세조회</h3>
+			       <h5 class="text-muted"></h5>
+			    </div>
+	       </div>
 	    </div>
+	    
+	    <div class="row">
+		  <div class="col-xs-6 col-md-3 col-md-offset-3">
+		      <img src="/images/uploadFiles/${product.fileName}"/>
+		  </div>
+		</div>
 	
 		<div class="row">
-	  		<div class="col-xs-4 col-md-2"><strong>상품명</strong></div>
+	  		<div class="col-xs-4 col-md-2 col-md-offset-2"><strong>상품명</strong></div>
 			<div class="col-xs-8 col-md-4">${product.prodName }</div>
 		</div>
 		
 		<hr/>
 		
 		<div class="row">
-	  		<div class="col-xs-4 col-md-2 "><strong>상품상세정보</strong></div>
-			<div class="col-xs-8 col-md-4">${product.prodDetail }</div>
-		</div>
-		
-		<hr/>
-		
-		<div class="row">
-	  		<div class="col-xs-4 col-md-2 "><strong>제조일자</strong></div>
-			<div class="col-xs-8 col-md-4">${product.manuDate }</div>
-		</div>
-		
-		<hr/>
-		
-		<div class="row">
-	  		<div class="col-xs-4 col-md-2 "><strong>가격</strong></div>
+	  		<div class="col-xs-4 col-md-2 col-md-offset-2"><strong>가격</strong></div>
 			<div class="col-xs-8 col-md-4">${product.price }	</div>
 		</div>
 		
 		<hr/>
 		
 		<div class="row">
-	  		<div class="col-xs-4 col-md-2"><strong>등록일자</strong></div>
+	  		<div class="col-xs-4 col-md-2 col-md-offset-2"><strong>상품상세정보</strong></div>
+			<div class="col-xs-8 col-md-4">${product.prodDetail }</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2 col-md-offset-2"><strong>제조일자</strong></div>
+			<div class="col-xs-8 col-md-4">${product.manuDate }</div>
+		</div>
+		
+		<hr/>
+		
+		<div class="row">
+	  		<div class="col-xs-4 col-md-2 col-md-offset-2"><strong>등록일자</strong></div>
 			<div class="col-xs-8 col-md-4">${product.regDate}</div>
 		</div>
 		
 		<hr/>
 		
-
-		
 		<div class="row">
+			<div class="col-md-4 text-center col-md-offset-1">
 			<c:if test="${user.role eq 'admin' }">
-			<div class="col-md-12 text-left ">
-	  			<button type="button" class="btn btn-primary">수정</button>
-	  		</div>
+				 <button type="button" class="btn btn-primary">수정</button>
 	  		</c:if>
-	  		<div class="col-md-12 text-center ">
 	  			<button type="button" class="btn btn-primary">구매</button>
-	  		</div>
-	  		<div class="col-md-12 text-right ">
 	  			<button type="button" class="btn btn-primary">확인</button>
 	  		</div>
 		</div>
