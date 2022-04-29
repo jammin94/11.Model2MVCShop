@@ -40,13 +40,10 @@
 		 $(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			 $( "button:contains('수정')" ).on("click" , function() {
-					self.location = "/product/updateProduct/${product.prodNo }"
-				});
-			 $( "button:contains('구매')" ).on("click" , function() {
-					self.location = "/purchase/addPurchase/${product.prodNo }"
+					self.location = "/purchase/updatePurchase/${purchase.tranNo }"
 				});
 			 $( "button:contains('확인')" ).on("click" , function() {
-					self.location = "/product/listProduct"
+					self.location = "/purchase/listPurchase"
 				});
 		});
 		
@@ -87,7 +84,7 @@
 		
 		<div class="row">
 	  		<div class="col-xs-4 col-md-2 col-md-offset-2"><strong>가격</strong></div>
-			<div class="col-xs-8 col-md-4">${product.price }	</div>
+			<div class="col-xs-8 col-md-4">${purchase.purchaseProd.price }	</div>
 		</div>
 		
 		<hr/>
@@ -115,10 +112,7 @@
 		
 		<div class="row">
 			<div class="col-md-4 text-center col-md-offset-1">
-			<c:if test="${user.role eq 'admin' }">
-				 <button type="button" class="btn btn-primary">수정</button>
-	  		</c:if>
-	  			<button type="button" class="btn btn-primary">구매</button>
+				<button type="button" class="btn btn-primary">수정</button>
 	  			<button type="button" class="btn btn-primary">확인</button>
 	  		</div>
 		</div>
