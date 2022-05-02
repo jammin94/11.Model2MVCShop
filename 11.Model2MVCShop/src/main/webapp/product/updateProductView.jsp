@@ -84,7 +84,7 @@
 			</div>	  
 		</div>
 	    <!-- form Start /////////////////////////////////////-->
-		<form class="form-horizontal">
+		<form class="form-horizontal" name="detailForm">
 			 <div class="form-group">
 			   <label for="prodNo" class="col-sm-offset-1 col-sm-3 control-label">상품번호</label>
 			    <div class="col-sm-4">

@@ -75,6 +75,7 @@ public class ProductController {
 			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\"+fileName));
 			
 		}
+		
 		productService.addProduct(product);
 		int prodNo=productService.getProductNo(product.getProdName());
 		

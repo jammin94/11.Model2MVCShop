@@ -85,11 +85,5 @@ public class Product {
 				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate + "]";
 	}
 
-	//@Override
-	//public String toString() {
-	//	return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
-	//			+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate + ", inventory="
-	//			+ inventory + "]";
-	//}
 	
 }

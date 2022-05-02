@@ -113,11 +113,9 @@
 				  <input type="radio" id="Desc" name="Order" value="Desc">
 					<label for="Desc">가격 높은순</label>
 					<input type="radio" id="Asc" name="Order" value="Asc">
-					<label for="Asc">가격 낮은순</label>
-				  
+					<label for="Asc">가격 낮은순</label>  
 				</form>
-	    	</div>
-	    	
+	    	</div>   	
 		</div>
 
 <!--   user 전용 table Start /////////////////////////////////////-->
@@ -210,18 +208,8 @@
 		 	</c:otherwise>
 		 </c:choose>
 		 <td>
-		 	<c:if test="${user.role eq 'user'}">
-		 		<td><a href="/purchase/getPurchase/${i.tranNo }">구매 상세정보 조회</a></td>
-		 		<c:if test="${ i.tranCode.trim() eq '1'}">
-		 			<td><a href="/purchase/updatePurchase/${i.tranNo }">구매 상세정보 수정하기</a></td>
-		 		</c:if>
-		 		<c:if test="${ i.tranCode.trim() eq '2'}">
-		 			<td><a href="/purchase/updateTranCode?tranNo=${i.tranNo }&tranCode=3">도착완료 확인하기</a></td>
-		 		</c:if>
-		 	</c:if>
-		 		
-		 	<c:if test="${ i.tranCode.trim() eq '1' && user.role eq 'admin'}">
-		 		
+		 	<a href="/purchase/getPurchase/${i.tranNo }">구매 상세정보 조회</a></td>	 		
+		 	<c:if test="${ i.tranCode.trim() eq '1' && user.role eq 'admin'}">	
 		 		<td><a href="/purchase/updateTranCode?tranNo=${i.tranNo }&tranCode=2">배송하기</a></td>
 		 	</c:if>
 		</td>

@@ -55,6 +55,7 @@
 		 $(function() {
 			 
 			$( "button.btn.btn-default" ).on("click" , function() {
+				alert("°Ë»ö");
 				fncGetProductList(1);
 			});
 

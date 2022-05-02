@@ -34,7 +34,6 @@
 		 $(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$( "button.btn.btn-primary" ).on("click" , function() {
-				alert("wow");
 				fncAddProduct();
 			});
 		});	
@@ -50,39 +49,8 @@
 		
 		
 		function fncAddProduct() {
-			/*
-			var name = $("input:contains['상품명']").val();
-			var detail = $("input:contains['상품상세정보']").val();
-			var manuDate = $("input:contains['제조일자']").val();
-			var price = $("input:contains['가격']").val();
-			
-			alert(name);
-			alert(detail);
-			alert(manuDate);
-			alert(price);
-
-			if(name == null || name.length<1){
-				alert("상품명은 반드시 입력하여야 합니다.");
-				return;
-			}
-			if(detail == null || detail.length<1){
-				alert("상품상세정보는 반드시 입력하여야 합니다.");
-				return;
-			}
-			if(manuDate == null || manuDate.length<1){
-				alert("제조일자는 반드시 입력하셔야 합니다.");
-				return;
-			}
-			if(price == null || price.length<1){
-				alert("가격은 반드시 입력하셔야 합니다.");
-				return;
-			}
-			*/
-			alert("wow!")
 			$("form").attr("method" , "POST").attr("action" , "/product/addProduct").submit();
 		}
-		
-
 	</script>		
     
 </head>
@@ -103,7 +71,7 @@
 		<h1 class="bg-primary text-center">상품등록</h1>
 		
 		<!-- form Start /////////////////////////////////////-->
-		<form class="form-horizontal">
+		<form class="form-horizontal" name="detailForm">
 		
 		  <div class="form-group">
 		    <label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상품명</label>
@@ -131,16 +99,16 @@
 		    <label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">제조일자</label>
 		    <div class="col-sm-4">
 		      <input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="제조일자">
-		      	<!-- &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
+		      	 &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
 										onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>
- -->
+
 		    </div>
 		  </div>
 		  
 		  <div class="form-group">
 		    <label for="imageFile" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
 		    <div class="col-sm-4">
-		      <input type="file" class="form-control" id="imageFile" name="imageFile" placeholder="상품이미지">
+		      <input type="file" class="form-control" id="imageFile" name="imageFile">
 		    </div>
 		  </div>
 

@@ -35,6 +35,7 @@ public class PurchaseServiceImpl implements PurchaseService{
 	}
 
 	public Purchase getPurchase(int tranNo) throws Exception{
+		
 		return purchaseDao.getPurchase(tranNo);
 	}
 

@@ -103,8 +103,11 @@ public class PurchaseController {
 		System.out.println("/purchase/getPurchase : GET");
 		//Business Logic
 		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("purchase", purchaseService.getPurchase(tranNo));
+		Purchase purchase=purchaseService.getPurchase(tranNo);
+		purchase.setPurchaseProd(productService.getProduct(purchase.getPurchaseProd().getProdNo()));
+		
+		ModelAndView modelAndView = new ModelAndView();	
+		modelAndView.addObject("purchase", purchase);
 		modelAndView.setViewName("/purchase/getPurchase.jsp");
 		
 		return modelAndView;
