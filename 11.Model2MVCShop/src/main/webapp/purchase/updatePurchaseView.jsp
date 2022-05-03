@@ -83,6 +83,20 @@
 		  <div class="col-xs-6 col-md-3 col-md-offset-3">
 		      <img src="/images/uploadFiles/${purchase.purchaseProd.fileName}"/>
 		  </div>
+		  
+		  <div class="form-group">
+		    <label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상품명</label>
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" id="prodName" name="prodName" value="${purchase.purchaseProd.prodName }" readonly="readonly">
+		    </div>
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for=""price"" class="col-sm-offset-1 col-sm-3 control-label">가격</label>
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" id=""price"" name="price" value="${purchase.purchaseProd.price } 원" readonly="readonly">
+		    </div>
+		  </div>
 	
 		
 		  <div class="form-group">

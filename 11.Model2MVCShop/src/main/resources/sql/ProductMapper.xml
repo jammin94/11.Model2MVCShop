@@ -38,7 +38,8 @@
 	   		PROD_NAME = #{prodName},
 			PROD_DETAIL = #{prodDetail},
 			MANUFACTURE_DAY = #{manuDate},
-			PRICE =	#{price} 
+			PRICE =	#{price}, 
+			IMAGE_FILE = #{fileName} 
 	   	</set>
 	   	WHERE PROD_NO = #{prodNo}
 	 </update>

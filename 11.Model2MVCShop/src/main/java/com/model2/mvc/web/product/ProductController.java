@@ -66,20 +66,22 @@ public class ProductController {
 	public String addProduct( @ModelAttribute("product") Product product ) throws Exception {
 
 		System.out.println("/product/addProduct : POST");
-		//Business Logic
+		System.out.println("인자로 받은 product : "+product);
 		
+		//Business Logic
 		MultipartFile uploadFile = product.getImageFile();
 		if(!uploadFile.isEmpty()) {
 			String fileName=uploadFile.getOriginalFilename();
+			System.out.println("fileName : "+fileName);
 			product.setFileName(fileName);
-			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\"+fileName));
-			
+			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+fileName));
 		}
-		
 		productService.addProduct(product);
 		int prodNo=productService.getProductNo(product.getProdName());
+		System.out.println("prodNo : "+prodNo);
 		
-		return "redirect:/product/getProduct/"+prodNo;
+		return "redirect:/product/listProduct.jsp";
+		//return "redirect:/product/getProduct/"+prodNo;
 	}
 	
 	
@@ -102,8 +104,7 @@ public class ProductController {
 					System.out.println(cookie.getName());
 					System.out.println(cookie.getValue());
 				}	
-			}
-			
+			}	
 			if(cookie==null) {
 				cookie=new Cookie("history",prodNo);
 			}
@@ -112,7 +113,6 @@ public class ProductController {
 		response.addCookie(cookie);
 		
 		return "/product/getProduct.jsp";
-		
 	}
 	
 	@RequestMapping( value="updateProduct/{prodNo}", method=RequestMethod.GET )
@@ -137,7 +137,7 @@ public class ProductController {
 			String fileName=uploadFile.getOriginalFilename();
 			System.out.println(fileName);
 			product.setFileName(fileName);
-			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\"+fileName));
+			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+fileName));
 			
 		}
 		productService.updateProduct(product);
@@ -146,7 +146,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/listProduct")
-	public String listProudct( @ModelAttribute("search") Search search , Model model) throws Exception{
+	public String listProduct( @ModelAttribute("search") Search search , Model model) throws Exception{
 		
 		System.out.println("/product/listProduct : GET/POST");
 		

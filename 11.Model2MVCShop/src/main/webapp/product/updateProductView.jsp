@@ -84,7 +84,7 @@
 			</div>	  
 		</div>
 	    <!-- form Start /////////////////////////////////////-->
-		<form class="form-horizontal" name="detailForm">
+		<form class="form-horizontal" name="detailForm" enctype="multipart/form-data">
 			 <div class="form-group">
 			   <label for="prodNo" class="col-sm-offset-1 col-sm-3 control-label">상품번호</label>
 			    <div class="col-sm-4">
@@ -116,15 +116,14 @@
 		    <label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">제조일자</label>
 		    <div class="col-sm-4">
 		      <input type="text" class="form-control" id="manuDate" name="manuDate" value="${product.manuDate }" />
-		      &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
-		      onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>
+		      &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>
 		    </div>
 		  </div>
 		  
 		  <div class="form-group">
 		    <label for="imageFile" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
 		    <div class="col-sm-4">
-		      <input type="file" class="form-control" id="imageFile" name="imageFile" value="${product.imageFile }">
+		      <input type="file" class="form-control" id="imageFile" name="imageFile">
 		    </div>
 		  </div>
 		  

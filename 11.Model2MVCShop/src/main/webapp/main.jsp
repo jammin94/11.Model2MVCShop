@@ -50,13 +50,10 @@
       <div class="jumbotron">
         <h1>Model2MVCShop </h1>
         <p>J2SE , DBMS ,JDBC , Servlet & JSP, Java Framework , HTML5 , UI Framework 학습 후 Mini-Project 진행</p>
+        <img src="/images/cat.jpg">
      </div>
     </div>
 
-	<!-- 참조 : http://getbootstrap.com/css/   : container part..... -->
-	<div class="container">
-       <img src="C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\cat.jpg"/>
-  	 </div>
 
 </body>
 

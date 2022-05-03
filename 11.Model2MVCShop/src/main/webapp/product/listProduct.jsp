@@ -134,7 +134,6 @@
 			        <h3>${i.prodName }</h3>
 			        <h4>${i.price }원</h4>
 			        <h5>제조일자 : ${i.regDate}</h5>
-			    
 			        <p><a href="#" class="btn btn-primary" role="button">장바구니 넣기</a> 
 			        <a href="#" class="btn btn-default" role="button">바로구매</a></p>
 			      </div>

@@ -1,5 +1,6 @@
 package com.model2.mvc.web.purchase;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -127,16 +128,23 @@ public class PurchaseController {
 		search.setPageSize(pageSize);
 		
 		User sessionUser=(User)session.getAttribute("user");
+		System.out.println("sessionUser : "+sessionUser);
 		System.out.println(search);
 		
 		// Business logic 수행
-		
 		Map<String , Object> map= null;
 			
-		if(sessionUser.getRole()=="admin") {
-			map=purchaseService.getPurchaseList(search,sessionUser.getUserId());
-		}else {
+		if(sessionUser.getRole().equals("admin")) {
 			map=purchaseService.getSalesList(search);
+		}else {
+			map=purchaseService.getPurchaseList(search,sessionUser.getUserId());
+			
+			//여기서부터 purchase에 product객체를 직접 넣는 실험파트임... 왜 작동하지?
+			List<Purchase> list = (List<Purchase>) map.get("list");
+			for(Purchase eachPurchase : list) {
+				eachPurchase.setPurchaseProd(productService.getProduct(eachPurchase.getPurchaseProd().getProdNo()));
+				System.out.println(eachPurchase);
+			}
 		}
 				
 		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
@@ -146,15 +154,14 @@ public class PurchaseController {
 		
 		modelAndView.addObject("list", map.get("list"));
 		modelAndView.addObject("resultPage", resultPage);
-		modelAndView.addObject("search", search);
-		
+		modelAndView.addObject("search", search);	
+		/*
 		if(sessionUser.getRole()=="admin") {
 			modelAndView.addObject("menu", "search");
 		}else {
 			modelAndView.addObject("menu", "manage");
 		}
-		
-		
+		*/	
 		modelAndView.setViewName("/purchase/listPurchase.jsp");
 		
 		return modelAndView;
@@ -165,8 +172,11 @@ public class PurchaseController {
 		
 		System.out.println("/purchase/updatePurchase : GET");
 		
+		Purchase purchase=purchaseService.getPurchase(tranNo);
+		purchase.setPurchaseProd(productService.getProduct(purchase.getPurchaseProd().getProdNo()));
+		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("purchase",purchaseService.getPurchase(tranNo));
+		modelAndView.addObject("purchase",purchase);
 		
 		modelAndView.setViewName("/purchase/updatePurchaseView.jsp");
 		

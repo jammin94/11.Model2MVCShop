@@ -71,7 +71,7 @@
 		<h1 class="bg-primary text-center">상품등록</h1>
 		
 		<!-- form Start /////////////////////////////////////-->
-		<form class="form-horizontal" name="detailForm">
+		<form class="form-horizontal" name="detailForm" enctype="multipart/form-data">
 		
 		  <div class="form-group">
 		    <label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상품명</label>
@@ -98,10 +98,9 @@
 		  <div class="form-group">
 		    <label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">제조일자</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="제조일자">
+		      <input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="제조일자"/>
 		      	 &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
 										onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>
-
 		    </div>
 		  </div>
 		  
@@ -112,7 +111,6 @@
 		    </div>
 		  </div>
 
-		  
 		  <div class="form-group">
 		    <div class="col-sm-offset-4  col-sm-4 text-center">
 		      <button type="button" class="btn btn-primary"  >등 &nbsp;록</button>
@@ -120,7 +118,7 @@
 		    </div>
 		  </div>
 		</form>
-		<!-- form Start /////////////////////////////////////-->
+		<!-- form End /////////////////////////////////////-->
 		
  	</div>
 	<!--  화면구성 div end /////////////////////////////////////-->

@@ -173,9 +173,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">상품명</th>
-      <c:if test="${user.role eq 'admin'}">
-      	<th scope="col">회원ID</th>
-      </c:if>
+      <th scope="col">회원ID</th>
       <th scope="col">회원명</th>
       <th scope="col">전화번호</th>
       <th scope="col">배송현황</th>
@@ -209,7 +207,7 @@
 		 </c:choose>
 		 <td>
 		 	<a href="/purchase/getPurchase/${i.tranNo }">구매 상세정보 조회</a></td>	 		
-		 	<c:if test="${ i.tranCode.trim() eq '1' && user.role eq 'admin'}">	
+		 	<c:if test="${ i.tranCode.trim() eq '1'}">	
 		 		<td><a href="/purchase/updateTranCode?tranNo=${i.tranNo }&tranCode=2">배송하기</a></td>
 		 	</c:if>
 		</td>
