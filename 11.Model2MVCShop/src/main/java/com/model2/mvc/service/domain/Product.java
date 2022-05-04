@@ -14,14 +14,14 @@ public class Product {
 	private String prodName;
 	private int prodNo;
 	private Date regDate;
-	private MultipartFile imageFile;
+	private MultipartFile[] imageFile;
 	//private int inventory;
 	
-	public MultipartFile getImageFile() {
+	public MultipartFile[] getImageFile() {
 		return imageFile;
 	}
 
-	public void setImageFile(MultipartFile imageFile) {
+	public void setImageFile(MultipartFile[] imageFile) {
 		this.imageFile = imageFile;
 	}
 

@@ -138,19 +138,32 @@
 			return ((11 - mod) % 10 == last) ? true : false;
 		}
 		 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$(function() {
+		$( "#userId" ).change(function() {
 	
-		 
-		//==>"ID중복확인" Event 처리 및 연결
-		 $(function() {
-			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			 $("button.btn.btn-info").on("click" , function() {
-				popWin 
-				= window.open("/user/checkDuplication.jsp",
-											"popWin", 
-											"left=300,top=200,width=780,height=130,marginwidth=0,marginheight=0,"+
-											"scrollbars=no,scrolling=no,menubar=no,resizable=no");
-			});
+			//여기서 맨 위에 정의한 id를 사용할 수 없다 
+			var userId = $(this).val();
+	
+			 $.ajax( 
+					{
+						url : "/user/json/checkDuplication" ,
+						method : "POST" ,
+						dataType : "json" ,
+						headers : {
+							"Accept" : "application/json",
+							"Content-Type" : "application/json"
+						},
+						data : JSON.stringify({
+							"userId" : userId
+						}),
+						success : function(JSONData , status) {
+	
+							var displayValue = JSONData.result;		
+							$(".text-danger[name='checkDuplication']").html(displayValue);
+						}
+				});
 		});	
+	});
 
 	</script>		
     
@@ -177,13 +190,10 @@
 		  <div class="form-group">
 		    <label for="userId" class="col-sm-offset-1 col-sm-3 control-label">아 이 디</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="userId" name="userId" placeholder="중복확인하세요"  readonly>
+		      <input type="text" class="form-control" id="userId" name="userId">
 		       <span id="helpBlock" class="help-block">
-		      	<strong class="text-danger">입력전 중복확인 부터..</strong>
+		      	<strong class="text-danger" name="checkDuplication"></strong>
 		      </span>
-		    </div>
-		    <div class="col-sm-3">
-		      <button type="button" class="btn btn-info">중복확인</button>
 		    </div>
 		  </div>
 		  
@@ -204,7 +214,7 @@
 		  <div class="form-group">
 		    <label for="userName" class="col-sm-offset-1 col-sm-3 control-label">이름</label>
 		    <div class="col-sm-4">
-		      <input type="password" class="form-control" id="userName" name="userName" placeholder="회원이름">
+		      <input type="text" class="form-control" id="userName" name="userName" placeholder="회원이름">
 		    </div>
 		  </div>
 		  

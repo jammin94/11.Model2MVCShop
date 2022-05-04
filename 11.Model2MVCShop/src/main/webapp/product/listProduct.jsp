@@ -61,7 +61,8 @@
 
 		});	
 
-	
+		//무한 스크롤
+
 	
 	</script>
 	
@@ -126,7 +127,7 @@
       <!--  table Start /////////////////////////////////////-->
       <div class="row">
 	      <c:forEach var="i" items= "${list}" varStatus="status" >
-			  <div class="col-sm-6 col-md-4">
+			  <div class="col-sm-3 col-md-2">
 			    <div class="thumbnail">
 			      <a href="/product/getProduct/${i.prodNo}"><img src="/images/uploadFiles/${i.fileName}"/></a>
 			      	
@@ -148,7 +149,7 @@
  	
  	
  	<!-- PageNavigation Start... -->
-	<jsp:include page="../common/pageNavigator_new.jsp"/>
+	<jsp:include page="../common/pageNavigator_new_product.jsp"/>
 	<!-- PageNavigation End... -->
 	
 </body>

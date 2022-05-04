@@ -225,7 +225,7 @@
  	
  	
  	<!-- PageNavigation Start... -->
-	<jsp:include page="../common/pageNavigator_new.jsp"/>
+	<jsp:include page="../common/pageNavigator_new_purchase.jsp"/>
 	<!-- PageNavigation End... -->
 	
 </body>

@@ -35,5 +35,14 @@ public class ProductRestController {
 		return productService.getProduct(prodNo);
 	}
 	
+	@RequestMapping( value="json/listProduct", method=RequestMethod.GET )
+	public Product listProduct( @PathVariable int prodNo ) throws Exception{
+		
+		System.out.println("/user/json/getProduct : GET");
+		
+		//Business Logic
+		return productService.getProduct(prodNo);
+	}
+	
 
 }

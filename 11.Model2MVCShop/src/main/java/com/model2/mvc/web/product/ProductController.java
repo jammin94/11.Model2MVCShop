@@ -69,13 +69,20 @@ public class ProductController {
 		System.out.println("인자로 받은 product : "+product);
 		
 		//Business Logic
-		MultipartFile uploadFile = product.getImageFile();
-		if(!uploadFile.isEmpty()) {
-			String fileName=uploadFile.getOriginalFilename();
-			System.out.println("fileName : "+fileName);
-			product.setFileName(fileName);
-			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+fileName));
+		MultipartFile[] uploadFiles = product.getImageFile();
+		String filename=null;
+		if(uploadFiles.length!=0) {
+			for(MultipartFile uploadFile : uploadFiles) {
+				String temp=uploadFile.getOriginalFilename();
+				System.out.println("fileName : "+temp);
+				
+				filename+=temp+"&";
+				uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+temp));
+			}
 		}
+		
+		product.setFileName(filename);
+		
 		productService.addProduct(product);
 		int prodNo=productService.getProductNo(product.getProdName());
 		System.out.println("prodNo : "+prodNo);
