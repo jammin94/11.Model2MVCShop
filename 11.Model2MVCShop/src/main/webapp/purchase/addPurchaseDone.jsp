@@ -48,14 +48,13 @@
 	<!-- ToolBar Start /////////////////////////////////////-->
 	<jsp:include page="/layout/toolbar.jsp" />
    	<!-- ToolBar End /////////////////////////////////////-->
-	
+	 
 	<!--  화면구성 div Start /////////////////////////////////////-->
 <div class="container">    
 
 
-  <div class="col-xs-6 col-md-3 col-md-offset-3">
-      <img src="/images/uploadFiles/${product.fileName}"/>
-  </div>
+
+
 
 
 <table class="table table-hover">
@@ -84,7 +83,8 @@
 	</tr>
   </tbody>
 </table>
-
+&nbsp;
+구매가 완료 되었습니다.
 <a href="/purchase/listPurchase">확인</a>
 <!-- table End /////////////////////////////////////-->
 

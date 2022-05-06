@@ -172,7 +172,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">상품명</th>
+      <th scope="col">상품번호</th>
       <th scope="col">회원ID</th>
       <th scope="col">회원명</th>
       <th scope="col">전화번호</th>

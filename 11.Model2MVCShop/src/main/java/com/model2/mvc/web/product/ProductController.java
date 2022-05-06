@@ -69,19 +69,39 @@ public class ProductController {
 		System.out.println("인자로 받은 product : "+product);
 		
 		//Business Logic
+		/*
 		MultipartFile[] uploadFiles = product.getImageFile();
 		String filename=null;
 		if(uploadFiles.length!=0) {
-			for(MultipartFile uploadFile : uploadFiles) {
-				String temp=uploadFile.getOriginalFilename();
+			for(int i=0;i<uploadFiles.length;i++) {
+				String temp=uploadFiles[i].getOriginalFilename();
+				uploadFiles[i].transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+temp));
 				System.out.println("fileName : "+temp);
-				
-				filename+=temp+"&";
-				uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+temp));
+				if(i==0) {
+					filename+=temp;
+				}else {
+					filename+="&"+temp;
+				}					
 			}
 		}
 		
 		product.setFileName(filename);
+		*/
+		
+		MultipartFile[] uploadFiles = product.getImageFile();
+		String filename=null;
+		if(uploadFiles.length!=0) {
+			for(int i=0;i<uploadFiles.length;i++) {
+				String temp=uploadFiles[i].getOriginalFilename();
+				uploadFiles[i].transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+temp));
+				System.out.println("fileName : "+temp);
+				if(i==0) {
+					filename+=temp;
+				}else {
+					filename+="&"+temp;
+				}					
+			}
+		}
 		
 		productService.addProduct(product);
 		int prodNo=productService.getProductNo(product.getProdName());
@@ -138,14 +158,20 @@ public class ProductController {
 	public String UpdateProduct( @ModelAttribute("product") Product product ) throws Exception {
 
 		System.out.println("/product/updateProduct : POST");
-		//Business Logic
-		MultipartFile uploadFile = product.getImageFile();
-		if(!uploadFile.isEmpty()) {
-			String fileName=uploadFile.getOriginalFilename();
-			System.out.println(fileName);
-			product.setFileName(fileName);
-			uploadFile.transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+fileName));
-			
+		//Business Logic	
+		MultipartFile[] uploadFiles = product.getImageFile();
+		String filename=null;
+		if(uploadFiles.length!=0) {
+			for(int i=0;i<uploadFiles.length;i++) {
+				String temp=uploadFiles[i].getOriginalFilename();
+				uploadFiles[i].transferTo(new File("C:\\Users\\bitcamp\\git\\11.Model2MVCShop\\11.Model2MVCShop\\src\\main\\webapp\\images\\uploadFiles\\"+temp));
+				System.out.println("fileName : "+temp);
+				if(i==0) {
+					filename+=temp;
+				}else {
+					filename+="&"+temp;
+				}			
+			}
 		}
 		productService.updateProduct(product);
 
